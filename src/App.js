@@ -1,25 +1,46 @@
-import logo from './logo.svg';
+import React, { useState } from "react";
 import './App.css';
 
+
+const systems = [
+  "Aces & Eights",
+  "Blades in the Dark",
+  "Cyberpunk 2020",
+  "Fate Accelerated",
+  "Mothership",
+  "Shadowrun"
+];
+
+
 function App() {
+  const [selectedSystem, setSelectedSystem] = useState(null);
+
+  const handleSelect = (systems) => {
+    setSelectedSystem(system);
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Select game</h1>
+      <div className="ttrpg-list">
+        {systems.map((system, index) => (
+          <div 
+            key={index} 
+            className={`system-item ${selectedSystem === system ? "selected" : ""}`} 
+            onClick={() => handleSelect(system)}
+          >
+            {system}
+          </div>
+        ))}
+      </div>
+      {selectedSystem && (
+        <div className="selected-message">
+          <h2>You selected: {selectedSystem}</h2>
+        </div>
+      )}
     </div>
   );
 }
 
 export default App;
+
