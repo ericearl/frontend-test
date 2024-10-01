@@ -16,7 +16,7 @@ function App() {
   const [selectedSystem, setSelectedSystem] = useState(null);
 
   const handleSelect = (systems) => {
-    setSelectedSystem(system);
+    setSelectedSystem(systems);
   };
 
   return (
