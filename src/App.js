@@ -15,14 +15,14 @@ const systems = [
 function App() {
   const [selectedSystem, setSelectedSystem] = useState(null);
 
-  const handleSelect = (systems) => {
-    setSelectedSystem(systems);
+  const handleSelect = (system) => {
+    setSelectedSystem(system);
   };
 
   return (
     <div className="App">
       <h1>Select game</h1>
-      <div className="ttrpg-list">
+      <div className="system-list">
         {systems.map((system, index) => (
           <div 
             key={index} 
@@ -43,4 +43,3 @@ function App() {
 }
 
 export default App;
-
